@@ -1,0 +1,3 @@
+echo "🔍 Pre-commit: typecheck + lint..."
+npm run typecheck
+npm run lint
