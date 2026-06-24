@@ -24,6 +24,9 @@ export class ApiError extends Error {
 export const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL ?? '',
   headers: { 'Content-Type': 'application/json' },
+  // Ako server visi, prekini posle 10s (umesto beskonačnog čekanja) → interceptor
+  // to pretvori u ApiError, pa UI pokaže grešku umesto da večno stoji u loading-u.
+  timeout: 10_000,
 })
 
 apiClient.interceptors.response.use(

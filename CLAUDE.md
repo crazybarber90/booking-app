@@ -105,13 +105,17 @@ STACK.md               # zašto svaka tehnologija
 - Zustand store (`src/store/booking-store.ts`), API sloj i Zod šeme su na mestu.
 - `Providers` je uvezan u `layout.tsx` (TanStack Query + `Toaster`).
 - Payment je mock simulacija (validacija + loading + error handling, bez pravog procesora).
+- **Testovi:** Vitest (card-utils, store, API greške) + 1 Playwright E2E (ceo flow,
+  mock API). Ciljano na najrizičnije, ne coverage broj. Detalji u `TESTS.md`.
 
 ## 8. Komande
 
 ```bash
-npm run dev      # dev server
-npm run build    # produkcijski build
-npm run lint     # eslint
+npm run dev        # dev server
+npm run build      # produkcijski build
+npm run lint       # eslint
+npm test           # Vitest unit/integration testovi
+npm run test:e2e   # Playwright E2E (prvi put: npx playwright install chromium)
 ```
 
 ---
